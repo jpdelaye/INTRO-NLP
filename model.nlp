@@ -1,0 +1,251 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "i,love,product,this": {
+            "intent": "positive",
+            "domain": "default"
+          },
+          "great,is,this": {
+            "intent": "positive",
+            "domain": "default"
+          },
+          "hate,i,product,this": {
+            "intent": "negative",
+            "domain": "default"
+          },
+          "is,terribl,this": {
+            "intent": "negative",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "positive": "default",
+          "negative": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "I love this product",
+            "intent": "positive"
+          },
+          {
+            "domain": "default",
+            "utterance": "This is great",
+            "intent": "positive"
+          },
+          {
+            "domain": "default",
+            "utterance": "I hate this product",
+            "intent": "negative"
+          },
+          {
+            "domain": "default",
+            "utterance": "This is terrible",
+            "intent": "negative"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "i": 1,
+              "love": 1,
+              "this": 1,
+              "product": 1,
+              "is": 1,
+              "great": 1,
+              "hate": 1,
+              "terribl": 1
+            },
+            "intents": {
+              "positive": 1,
+              "negative": 1
+            },
+            "intentFeatures": {
+              "positive": {
+                "i": 1,
+                "love": 1,
+                "this": 1,
+                "product": 1,
+                "is": 1,
+                "great": 1
+              },
+              "negative": {
+                "i": 1,
+                "hate": 1,
+                "this": 1,
+                "product": 1,
+                "is": 1,
+                "terribl": 1
+              }
+            },
+            "featuresToIntent": {
+              "i": [
+                "positive",
+                "negative"
+              ],
+              "love": [
+                "positive"
+              ],
+              "this": [
+                "positive",
+                "negative"
+              ],
+              "product": [
+                "positive",
+                "negative"
+              ],
+              "is": [
+                "positive",
+                "negative"
+              ],
+              "great": [
+                "positive"
+              ],
+              "hate": [
+                "negative"
+              ],
+              "terribl": [
+                "negative"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "i",
+                "love",
+                "this",
+                "product",
+                "is",
+                "great",
+                "hate",
+                "terribl"
+              ],
+              "intents": [
+                "positive",
+                "negative"
+              ],
+              "perceptrons": [
+                [
+                  1.0978792905807495,
+                  7.624927043914795,
+                  2.927802801132202,
+                  1.0978792905807495,
+                  1.8302016258239746,
+                  7.966379165649414,
+                  -6.529543876647949,
+                  -6.139285564422607,
+                  1.4616676299026354
+                ],
+                [
+                  1.0999820232391357,
+                  -6.522095203399658,
+                  2.93315052986145,
+                  1.0999820232391357,
+                  1.8328709602355957,
+                  -6.13001012802124,
+                  7.624719142913818,
+                  7.966151237487793,
+                  1.4689298284870147
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "I love this product"
+      ],
+      [
+        "en",
+        "This is great"
+      ],
+      [
+        "en",
+        "I hate this product"
+      ],
+      [
+        "en",
+        "This is terrible"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {}
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}
